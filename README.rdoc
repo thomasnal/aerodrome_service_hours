@@ -20,4 +20,4 @@ Open the browser and navigate to localhost.
     
 === Screenshot
 
-![image](http://raw.github.com/thomasnal/aerodrome_service_hours/master/screenshot.jpg)
+http://raw.github.com/thomasnal/aerodrome_service_hours/master/screenshot.jpg
