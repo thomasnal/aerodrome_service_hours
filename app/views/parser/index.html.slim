@@ -1,0 +1,28 @@
+.container
+  .row.text-center.page-header
+    .col-lg-12
+      h1 Airports Service Hours
+
+  .row
+    .panel.panel-success
+      .panel-heading.text-center Upload Notamn input file
+      .panel-body
+        = form_tag(upload_input_path, multipart: true, remote: true, id: 'upload_input', class: 'form-inline text-center') do
+          .input-group
+            input type='text' id="file_name" class='form-control' readonly='true'
+            span class='input-group-btn'
+              span class='btn btn-primary btn-file'
+                | Browse
+                = file_field_tag 'input_file'
+          = submit_tag 'Submit', class: 'btn btn-primary'
+
+.container
+  .row
+    table.table.table-primary.table-striped.table-hover#schedule style=('display: table' if @notamns.present?)
+      thead
+        tr
+          th Airport
+          - Date::DAYNAMES.rotate.each do |d|
+            th.text-center= d
+      tbody
+        = render :partial => 'schedule_item', :collection => @notamns

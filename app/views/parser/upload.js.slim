@@ -1,0 +1,4 @@
+/ replace the schedule table content
+- if @notamns.present?
+  | $('#schedule tbody').html("#{j render :partial => 'schedule_item', :collection => @notamns}");
+  | $('#schedule').fadeOut(425).fadeIn(425);

@@ -1,0 +1,4 @@
+tr
+  td= schedule_item.id
+  - Notamn::DAYS.each do |d|
+    td.schedule= schedule_item.hours_for_day(d.downcase.to_sym).join('<br>')

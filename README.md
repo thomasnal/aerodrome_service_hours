@@ -1,2 +1,3 @@
-# aerodrome_service_hours
-Aerodrome Service Hours
+== Aerodrome Service Hours
+
+Reads input file containing Notamn records and outputs table of service hours.
