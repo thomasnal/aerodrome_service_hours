@@ -6,12 +6,12 @@ Reads input file containing Notamn records and outputs table of service hours.
 
 === Installation
 
-```
+
 git clone http://github.com/thomasnal/aerodrome_service_hours
-```
+
 
 === Sample input
 
-```
+
 test/fixtures/input/notamn3.in
-```
+
