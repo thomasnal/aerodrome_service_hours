@@ -4,3 +4,12 @@
 require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
+
+Rake::Task['test:run'].clear
+namespace :test do
+  Rails::TestTask.new(:run) do |t|
+    t.test_files = FileList["test/**/*_test.rb"].exclude(
+      'test/performance/**/*_test.rb'
+    )
+  end
+end

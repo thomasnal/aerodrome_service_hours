@@ -138,6 +138,7 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails-perftest (0.0.6)
     railties (4.2.2)
       actionpack (= 4.2.2)
       activesupport (= 4.2.2)
@@ -147,6 +148,7 @@ GEM
     rdoc (4.2.2)
       json (~> 1.4)
     remotipart (1.2.1)
+    ruby-prof (0.15.9)
     ruby-progressbar (1.7.5)
     sass (3.4.21)
     sass-rails (5.0.4)
@@ -215,7 +217,9 @@ DEPENDENCIES
   minitest-reporters
   poltergeist
   rails (= 4.2.2)
+  rails-perftest
   remotipart
+  ruby-prof
   sass-rails
   sdoc (~> 0.4.0)
   slim-rails

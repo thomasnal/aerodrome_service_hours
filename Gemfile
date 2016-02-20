@@ -56,4 +56,7 @@ group :test do
   gem 'minitest-reporters'
   gem 'activesupport'
   gem 'poltergeist'
+
+	gem 'rails-perftest'
+	gem 'ruby-prof'
 end
