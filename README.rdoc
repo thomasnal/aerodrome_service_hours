@@ -2,16 +2,18 @@
 
 === Description
 
-Reads input file containing Notamn records and outputs table of service hours.
+This is a Ruby on Rails application that displays list of aerodrome service hours. Input is provided by posting an input text file through the form.
 
 === Installation
 
+    git clone http://github.com/thomasnal/aerodrome_service_hours
 
-git clone http://github.com/thomasnal/aerodrome_service_hours
+=== Run
 
+   rails s
+
+Open the browser and navigate to localhost.
 
 === Sample input
 
-
-test/fixtures/input/notamn3.in
-
+    test/fixtures/input/notamn3.in
