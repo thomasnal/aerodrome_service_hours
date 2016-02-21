@@ -30,11 +30,12 @@ http://raw.github.com/thomasnal/aerodrome_service_hours/master/screenshot.jpg
 
 === Machine code compiled Ruby source
 
-I investigate performance of the ruby code compiled to machine code. I expected many times higher performance. I didn't proved using Crystal. It would be interesting to investigate with Crystal authors why the performance is much worse comparing Ruby interpreted version.
+I investigated performance of the ruby code compiled to machine code. I expected many times higher performance. It didn't prove so using Crystal. It would be interesting to investigate with Crystal authors why the performance is much worse comparing to Ruby interpreted version.
 
    apt-get install crystal
+   cd $(PROJECT_ROOT)/vendor/crystal
    crystal build parser.cr --release
-   parser
+   ./parser
 
 http://crystal-lang.org/
 
