@@ -8,13 +8,14 @@
 # Ruby interpreted :(
 #
 
+require "benchmark"
 require "string_scanner"
 require "./notamn"
 
 class Parser
   getter :notamns
 
-	DAYS = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
+  DAYS = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
   RE_EMPTY_LINE = /\n/
 
   def initialize(str)
@@ -106,5 +107,5 @@ end
 
 puts "Hello Crystal"
 input = File.read("notamn.in")
-p = Parser.new(input)
-puts "Number of notamns: " + p.notamns.size.to_s
+puts Benchmark.measure { $p = Parser.new(input) }
+puts "Number of notamns: " + $p.notamns.size.to_s

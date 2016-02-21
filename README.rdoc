@@ -37,5 +37,19 @@ I investigated performance of the ruby code compiled to machine code. I expected
    crystal build parser.cr --release
    ./parser
 
-http://crystal-lang.org/
+To run side by side benchmarks crystal machine code vs ruby interpreted,
 
+   ./parser
+   ruby parser.rb
+
+Sample result,
+
+   Hello Crystal
+     0.007874   0.000015   0.007889 (  5.209755)
+   Number of notamns: 101
+
+   Hello Ruby
+     0.200000   0.010000   0.210000 (  0.215210)
+   Number of notamns: 101
+
+http://crystal-lang.org/
