@@ -30,26 +30,29 @@ http://raw.github.com/thomasnal/aerodrome_service_hours/master/screenshot.jpg
 
 === Machine code compiled Ruby source
 
-I investigated performance of the ruby code compiled to machine code. I expected many times higher performance. It didn't prove so using Crystal. It would be interesting to investigate with Crystal authors why the performance is much worse comparing to Ruby interpreted version.
+I investigated performance of the ruby code compiled into machine code. The processing time gets more than halved therefore considerably increasing performance comparing to Ruby interpreter.
 
    apt-get install crystal
    cd $(PROJECT_ROOT)/vendor/crystal
    crystal build parser.cr --release
    ./parser
 
-To run side by side benchmarks crystal machine code vs ruby interpreted,
+To run side by side benchmarks of machine code vs interpreted by Ruby,
 
+   ./notamn_in_prep.sh # to build input file
    ./parser
    ruby parser.rb
 
 Sample result,
 
    Hello Crystal
-     0.007874   0.000015   0.007889 (  5.209755)
-   Number of notamns: 101
+     0.003342   0.000076   0.003418 (  2.053490)
+   Number of notamns: 20001
 
    Hello Ruby
-     0.200000   0.010000   0.210000 (  0.215210)
-   Number of notamns: 101
+     4.530000   0.070000   4.600000 (  4.617555)
+   Number of notamns: 20001
+
+(Beware, to achieve this performance use the Crystal working copy or a newer version than 0.12 once released. Bug in StringScanner decreases performance.)
 
 http://crystal-lang.org/

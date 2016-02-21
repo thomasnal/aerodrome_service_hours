@@ -9,12 +9,14 @@ class ParserPlain
   RE_SECTION_A = /A\) (?<id>[\w\d]+)/
   RE_SECTION_E = /E\) AERODROME HOURS OF OPS\/SERVICE (?<schedule>.*)\n/
   RE_DAYS = /
-  (?<day>#{Notamn::DAYS.join('|')}) # match a day
-  (-(?<day_to>#{Notamn::DAYS.join('|')}))? # or day range
-  \s?	# optional space
-  (?<hours>(\d{4}-\d{4}[,\s]*)+ # match service hours
-  |
-  CLOSED) # or closed
+    (?<day>#{Notamn::DAYS.join('|')}) # match a day
+    (-(?<day_to>#{Notamn::DAYS.join('|')}))? # or day range
+    \s?	# optional space
+    (?<hours>
+     (\d{4}-\d{4}[,\s]*)+ # match service hours
+     |
+     CLOSED # or closed
+    )
   /x 
   RE_HOURS = /\d{4}-\d{4}|CLOSED/
 

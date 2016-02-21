@@ -35,6 +35,12 @@ class Parser
   attr_reader :notamns
 
   RE_EMPTY_LINE = /^$/
+	RE_DAY = /
+    (?<from>#{Notamn::DAYS.join('|')})
+    -?
+    (?<to>#{Notamn::DAYS.join('|')})?
+		\s*
+  /x
 
   def initialize(str)
     @buffer = StringScanner.new(str)
@@ -85,14 +91,7 @@ class Parser
   end
 
   def parse_day
-    days = @buffer.scan(
-      /
-      (?<from>#{Notamn::DAYS.join('|')})
-      -?
-      (?<to>#{Notamn::DAYS.join('|')})?
-        \s*
-        /x
-    )
+    days = @buffer.scan(RE_DAY)
     unless days.nil?
       from, to = @buffer[:from], @buffer[:to]
 

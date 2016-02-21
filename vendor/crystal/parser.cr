@@ -17,12 +17,18 @@ class Parser
 
   DAYS = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
   RE_EMPTY_LINE = /\n/
+  RE_DAY = /
+    (?<from>#{DAYS.join("|")})
+    -?
+    (?<to>#{DAYS.join("|")})?
+    \s*
+  /x
 
   def initialize(str)
     @buffer = StringScanner.new(str)
     @notamns = [] of Notamn
     @notamn = Notamn.new
-    @count = 0
+    # @count = 0
     parse
   end
 
@@ -35,8 +41,8 @@ class Parser
 
       if @buffer.scan(RE_EMPTY_LINE) || @buffer.eos?
         # store the Notamn if a valid E section was found
-        @count += 1
-        puts "...Notamns read " + @count.to_s if @count % 50 == 0
+        # @count += 1
+        # puts "...Notamns read " + @count.to_s if @count % 5000 == 0
         @notamns << @notamn if @notamn.hours.keys.size > 0
         @notamn = Notamn.new
       end
@@ -71,14 +77,7 @@ class Parser
   end
 
   def parse_day
-    days = @buffer.scan(
-      /
-      (?<from>#{DAYS.join("|")})
-      -?
-      (?<to>#{DAYS.join("|")})?
-        \s*
-        /x
-    )
+    days = @buffer.scan(RE_DAY)
     unless days.nil?
       from, to = @buffer["from"]?, @buffer["to"]?
 
